@@ -49,8 +49,8 @@ pipeline {
                 withSonarQubeEnv('sonarqube') {
                     bat """
                         mvn clean verify sonar:sonar \
-                        -Dsonar.projectKey=maven \
-                        -Dsonar.projectName='maven' \
+                        -Dsonar.projectKey=maven3 \
+                        -Dsonar.projectName='maven3' \
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.login=sqa_7172fb4913d2fc12a078ba3b6dba6d8f747d5c79
                     """
