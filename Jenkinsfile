@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        SONAR_TOKEN = credentials('maven') 
+        SONAR_TOKEN = credentials('maven3') 
         JAVA_HOME = 'C:\\Program Files\\Java\\jdk-17'
         PATH = "${JAVA_HOME}\\bin;${env.PATH}"
     }
@@ -52,7 +52,7 @@ pipeline {
                         -Dsonar.projectKey=maven \
                         -Dsonar.projectName='maven' \
                         -Dsonar.host.url=http://localhost:9000 \
-                        -Dsonar.token=sqp_d81ac1dfd0023a1300c8465363e5179bab347d76
+                        -Dsonar.token=${SONAR_TOKEN}
                     """
                 }
             }
