@@ -45,7 +45,7 @@ pipeline {
       stage('SonarQube Analysis') {
     steps {
         // withSonarQubeEnv('SonarQube Scanner') {
-        bat './gradlew clean build jacocoTestReport'
+        bat 'gradlew.bat clean build jacocoTestReport'
             bat """
                 mvn sonar:sonar \
                 -Dsonar.projectKey=maven3 \
