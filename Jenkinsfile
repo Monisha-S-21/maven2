@@ -46,7 +46,7 @@ pipeline {
         
       stage('SonarQube Analysis') {
     steps {
-        withSonarQubeEnv('SonarQube Scanner') {
+        // withSonarQubeEnv('SonarQube Scanner') {
             bat """
                 mvn sonar:sonar \
                 -Dsonar.projectKey=maven3 \
@@ -56,7 +56,7 @@ pipeline {
                 -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
             """
         }
-    }
+    // }
 }
 
     }
