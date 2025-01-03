@@ -28,7 +28,7 @@ pipeline {
                 bat 'mvn test'
             }
         }  
-       
+      
       
         stage('Package') {
             steps {
@@ -41,7 +41,13 @@ pipeline {
                 echo 'Deploying the application...'
             }
         }
-
+ task jacocoTestReport(type: JacocoReport) {
+    dependsOn test
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+}
         
         
       stage('SonarQube Analysis') {
