@@ -40,19 +40,12 @@ pipeline {
             steps {
                 echo 'Deploying the application...'
             }
-        }
- task jacocoTestReport(type: JacocoReport) {
-    dependsOn test
-    reports {
-        xml.enabled true
-        html.enabled true
-    }
-}
-        
+        }   
         
       stage('SonarQube Analysis') {
     steps {
         // withSonarQubeEnv('SonarQube Scanner') {
+        bat './gradlew clean build jacocoTestReport'
             bat """
                 mvn sonar:sonar \
                 -Dsonar.projectKey=maven3 \
